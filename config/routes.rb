@@ -154,9 +154,12 @@ Rails.application.routes.draw do
     get :download_attachment, :on => :member
     get :download_append, :on => :member
     get :opening, :on => :collection
+    get :prcing, :on => :collection
+    get :cmpt, :on => :collection
     get :opening_show, :on => :member
     get :prospecting, :on => :member
     get :exp_msg, :on => :member
+    get :exp_progress, :on => :member
   end
   resources :prst_forms do
     get :download_attachment, :on => :member

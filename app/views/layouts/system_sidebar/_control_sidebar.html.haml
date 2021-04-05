@@ -1,39 +1,89 @@
 .card.border-0.rounded-0
-  .card-body.p-0
-    %ul.list-group.list-group-flush.sidebar-lists
-      = link_to opening_exp_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "待办申请", class: "ml-4 mr-2"
-      = link_to prst_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "现场勘探", class: "ml-4 mr-2"
-      = link_to aprv_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "分管经理审批", class: "ml-4 mr-2"
-      = link_to pay_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "报装缴费", class: "ml-4 mr-2"
-      = link_to cstr_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "工程施工", class: "ml-4 mr-2"
-      = link_to vst_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "客户回访", class: "ml-4 mr-2"
-      = link_to list_ctg_mtrls_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "物品名录", class: "ml-4 mr-2"
-      = link_to ware_houses_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ware_house/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "入库", class: "ml-4 mr-2"
-      = link_to stocks_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/stock/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "库存", class: "ml-4 mr-2"
-      = link_to projects_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/stock/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "工程用料", class: "ml-4 mr-2"
-      = link_to retrievals_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/retrieval/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "出库", class: "ml-4 mr-2"
-      = link_to ocrs_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ocr/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "diamond", text: "AI工具箱", class: "ml-4 mr-2"
-      = link_to statistics_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/statistic/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
-        = fa_icon "bar-chart", text: "数据图表", class: "ml-4 mr-2"
+  #headingOne.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseOne", :"aria-expanded" => "true", :"data-target" => "#collapseOne", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "客服部", class: "mx-3"
+      
+  #collapseOne.collapse{"aria-labelledby" => "headingOne", "data-parent" => "#headingOne"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to opening_exp_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "待处理", class: "ml-4 mr-2"
+        = link_to prcing_exp_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "处理中", class: "ml-4 mr-2"
+        = link_to vst_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "待回访", class: "ml-4 mr-2"
+        = link_to cmpt_exp_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "已办结", class: "ml-4 mr-2"
+
+  #headingTwo.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseTwo", :"aria-expanded" => "true", :"data-target" => "#collapseTwo", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "工程部", class: "mx-3"
+      
+  #collapseTwo.collapse{"aria-labelledby" => "headingTwo", "data-parent" => "#headingTwo"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to prst_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "现场勘探", class: "ml-4 mr-2"
+        = link_to cstr_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "工程施工", class: "ml-4 mr-2"
+
+  #headingThree.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseThree", :"aria-expanded" => "true", :"data-target" => "#collapseThree", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "分管经理", class: "mx-3"
+      
+  #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#headingThree"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to aprv_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "分管经理审批", class: "ml-4 mr-2"
+
+
+  #headingFour.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseFour", :"aria-expanded" => "true", :"data-target" => "#collapseFour", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "财务部", class: "mx-3"
+      
+  #collapseFour.collapse{"aria-labelledby" => "headingFour", "data-parent" => "#headingFour"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to pay_forms_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "报装缴费", class: "ml-4 mr-2"
+
+  #headingFive.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseFive", :"aria-expanded" => "true", :"data-target" => "#collapseFive", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "仓储管理", class: "mx-3"
+      
+  #collapseFive.collapse{"aria-labelledby" => "headingFive", "data-parent" => "#headingFive"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to list_ctg_mtrls_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ctg_frsts/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "物品名录", class: "ml-4 mr-2"
+        = link_to ware_houses_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ware_house/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "入库", class: "ml-4 mr-2"
+        = link_to stocks_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/stock/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "库存", class: "ml-4 mr-2"
+        = link_to projects_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/stock/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "工程用料", class: "ml-4 mr-2"
+        = link_to retrievals_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/retrieval/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "出库", class: "ml-4 mr-2"
+
+  #headingSix.card-header.p-0.bg-transparent
+    = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseSix", :"aria-expanded" => "true", :"data-target" => "#collapseSix", :"data-toggle" => "collapse"} do
+      = fa_icon "area-chart", text: "其他工具", class: "mx-3"
+      
+  #collapseSix.collapse{"aria-labelledby" => "headingSix", "data-parent" => "#headingSix"}
+    .card-body.p-0
+      %ul.list-group.list-group-flush.sidebar-lists
+        = link_to ocrs_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/ocr/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "diamond", text: "AI工具箱", class: "ml-4 mr-2"
+        = link_to statistics_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2  #{(/statistic/ =~ request.path).nil? ? '' : 'sidebar-text-active' }" do
+          = fa_icon "bar-chart", text: "数据图表", class: "ml-4 mr-2"
 -#
   .card.border-0.rounded-0
-    #headingThree.card-header.p-0.bg-transparent
-      = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseThree", :"aria-expanded" => "true", :"data-target" => "#collapseThree", :"data-toggle" => "collapse"} do
+    #headingOne.card-header.p-0.bg-transparent
+      = link_to nil,  {:class => "d-flex p-3 text-decoration-none bg-19212E text-white", :"aria-controls" => "collapseOne", :"aria-expanded" => "true", :"data-target" => "#collapseOne", :"data-toggle" => "collapse"} do
         = fa_icon "area-chart", text: "管理面板", class: "mx-3"
         
-    #collapseThree.collapse{"aria-labelledby" => "headingThree", "data-parent" => "#accordionExam
+    #collapseOne.collapse{"aria-labelledby" => "headingOne", "data-parent" => "#accordionExam
       .card-body.p-0
         %ul.list-group.list-group-flush.sidebar-lists
           = link_to agendas_path, :class => "list-group-item list-group-item-action border-0 text-left pl-4 py-2 bg-1B1B27 text-white" do

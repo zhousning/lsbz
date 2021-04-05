@@ -8,10 +8,29 @@ class ExpFormsController < ApplicationController
     @exp_forms = ExpForm.all
   end
 
+  def exp_progress
+    @exp_form = ExpForm.find(params[:id])
+    @prst_form = @exp_form.prst_form
+    @aprv_form = @exp_form.aprv_form
+    @pay_form  = @exp_form.pay_form
+    @cstr_form = @exp_form.cstr_form
+    @vst_form  = @exp_form.vst_form
+    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
+    @state = arr.index(@exp_form.state) + 1
+  end
+
   def opening
-    @exp_forms = ExpForm.where(:region => current_user.identity) 
+    @exp_forms = ExpForm.where(:region => current_user.identity, :state => "opening") 
   end
    
+  def prcing
+    @exp_forms = ExpForm.where("state not in (?) and region = ?", ["opening", "completed"], current_user.identity) 
+  end
+
+  def cmpt 
+    @exp_forms = ExpForm.where(:region => current_user.identity, :state => "completed") 
+  end
+
   def opening_show
     @exp_form = ExpForm.find(params[:id])
   end

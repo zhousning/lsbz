@@ -56,6 +56,17 @@
   background: #4F84C4;
 }
 
+.timeline #prc-ctn .timeline-continue::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 100%;
+  top: 0;
+  left: 15%;
+  margin-left: -1px;
+  background: #4F84C4;
+}
+
 .timeline .row.timeline-left,
 .timeline .row.timeline-right .timeline-date {
   text-align: right;

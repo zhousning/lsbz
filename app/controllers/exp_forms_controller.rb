@@ -32,8 +32,8 @@ class ExpFormsController < ApplicationController
 
    
   def show
-    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
     @exp_form = ExpForm.find(params[:id])
+    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
     @state = arr.index(@exp_form.state) + 1
   end
    

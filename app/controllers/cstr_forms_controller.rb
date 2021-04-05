@@ -41,6 +41,8 @@ class CstrFormsController < ApplicationController
     @aprv_form = @exp_form.aprv_form
     @prst_form = @exp_form.prst_form
     @pay_form = @exp_form.pay_form
+    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
+    @state = arr.index(@exp_form.state) + 1
   end
    
 

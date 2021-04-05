@@ -1,0 +1,105 @@
+%table.text-center.table.table-bordered
+  %tbody
+    %tr
+      %td
+        = Setting.exp_forms.name
+      %td
+        = @exp_form.name
+      %td
+        = Setting.exp_forms.idno
+      %td
+        = @exp_form.idno
+    %tr
+      %td
+        = Setting.exp_forms.contact
+      %td
+        = @exp_form.contact
+      %td
+        = Setting.exp_forms.email
+      %td
+        = @exp_form.email
+    %tr
+      %td
+        = Setting.exp_forms.prj_name
+      %td
+        = @exp_form.prj_name
+      %td
+        = Setting.exp_forms.prj_address
+      %td
+        = @exp_form.prj_address
+    %tr
+      %td
+        = Setting.exp_forms.prj_attr
+      %td
+        = @exp_form.prj_attr
+      %td
+        = Setting.exp_forms.prj_type
+      %td
+        = @exp_form.prj_type
+    %tr
+      %td
+        = Setting.exp_forms.east
+      %td
+        = @exp_form.east
+      %td
+        = Setting.exp_forms.west
+      %td
+        = @exp_form.west
+    %tr
+      %td
+        = Setting.exp_forms.south
+      %td
+        = @exp_form.south
+      %td
+        = Setting.exp_forms.north
+      %td
+        = @exp_form.north
+    %tr
+      %td
+        = Setting.exp_forms.cmp_type
+      %td
+        = @exp_form.cmp_type
+      %td
+        = Setting.exp_forms.region
+      %td
+        = @exp_form.region
+    %tr
+      %td
+        = Setting.exp_forms.area
+      %td
+        = @exp_form.area
+      %td
+        = Setting.exp_forms.matter
+      %td
+        = @exp_form.matter
+    %tr
+      %td
+        = Setting.exp_forms.taxid
+      %td
+        = @exp_form.taxid
+      %td
+        = Setting.exp_forms.bank
+      %td
+        = @exp_form.bank
+    %tr
+      %td
+        = Setting.exp_forms.account
+      %td
+        = @exp_form.account
+      %td
+        = Setting.exp_forms.vat
+      %td
+        = @exp_form.vat
+    %tr
+      %td
+        = Setting.exp_forms.prs
+      %td
+        = @exp_form.prs
+      %td
+        = Setting.exp_forms.state
+      %td
+        = @exp_form.state
+.row
+  - @exp_form.attachments.each_with_index do |e, i|
+    .col-md-12
+      = link_to File.basename(e.file_url), download_attachment_exp_form_path(@exp_form.id, :number => i, :ft => '')

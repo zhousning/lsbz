@@ -1,0 +1,138 @@
+- provide(:title, t('.title'))
+
+.timeline
+  .container
+    .row
+      .col-lg-12
+        .timeline-container#prc-ctn
+          .timeline-continue
+            .row.timeline-right
+              .col-md-2
+                %p.timeline-date
+                  客服受理
+              .col-md-10
+                .timeline-box
+                  .timeline-icon
+                    %i.fa.fa-gift
+                  .timeline-text
+                    %p
+                      = render "exp_forms/exp_table"
+            -if @state > 1 
+              .row.timeline-right
+                .col-md-2
+                  %p.timeline-date
+                    现场勘探
+                .col-md-10
+                  .timeline-box
+                    .timeline-icon
+                      %i.fa.fa-gift
+                    .timeline-text
+                      %h3
+                        = @prst_form.title
+                      %p
+                        = @prst_form.info
+                    .row
+                      - @prst_form.enclosures.each do |e|
+                        .col-md-6
+                          = image_tag e.file_url(:small_width), :class => "w-100"
+                    .row
+                      - @prst_form.attachments.each_with_index do |e, i|
+                        .col-md-6
+                          = link_to URI.decode(File.basename(e.file_url)), download_attachment_prst_form_path(@prst_form.id, :number => i, :ft => '')
+            -if @state > 2 
+              .row.timeline-right
+                .col-md-2
+                  %p.timeline-date
+                    分管经理审批
+                .col-md-10
+                  .timeline-box
+                    .timeline-icon
+                      %i.fa.fa-gift
+                    .timeline-text
+                      %h3 
+                        = @exp_form.aprv_form.title
+                      %p
+                        = @exp_form.aprv_form.info
+                    .row
+                      - @exp_form.aprv_form.enclosures.each do |e|
+                        .col-md-6
+                          = image_tag e.file_url(:small_width), :class => "w-100"
+                    .row
+                      - @exp_form.aprv_form.attachments.each_with_index do |e, i|
+                        .col-md-6
+                          = link_to URI.decode(File.basename(e.file_url)), download_attachment_aprv_form_path(@aprv_form.id, :number => i, :ft => '')
+            -if @state > 3 
+              .row.timeline-right
+                .col-md-2
+                  %p.timeline-date
+                    报装缴费
+                .col-md-10
+                  .timeline-box
+                    .timeline-icon
+                      %i.fa.fa-gift
+                    .timeline-text
+                      %h3 
+                        = @exp_form.pay_form.title
+                      %p
+                        = @exp_form.pay_form.info
+                    .row
+                      - @exp_form.pay_form.enclosures.each do |e|
+                        .col-md-6
+                          = image_tag e.file_url(:small_width), :class => "w-100"
+                    .row
+                      - @exp_form.pay_form.attachments.each_with_index do |e, i|
+                        .col-md-6
+                          = link_to URI.decode(File.basename(e.file_url)), download_attachment_pay_form_path(@pay_form.id, :number => i, :ft => '')
+            -if @state > 4 
+              .row.timeline-right
+                .col-md-2
+                  %p.timeline-date
+                    工程施工
+                .col-md-10
+                  .timeline-box
+                    .timeline-icon
+                      %i.fa.fa-gift
+                    .timeline-text
+                      %h3 
+                        = @exp_form.cstr_form.title
+                      %p
+                        = @exp_form.cstr_form.info
+                    .row
+                      - @exp_form.cstr_form.enclosures.each do |e|
+                        .col-md-6
+                          = image_tag e.file_url(:small_width), :class => "w-100"
+                    .row
+                      - @exp_form.cstr_form.attachments.each_with_index do |e, i|
+                        .col-md-12
+                          = link_to URI.decode(File.basename(e.file_url)), download_attachment_cstr_form_path(@cstr_form.id, :number => i, :ft => '')
+            -if @state > 5 
+              .row.timeline-right
+                .col-md-2
+                  %p.timeline-date
+                    客户回访
+                .col-md-10
+                  .timeline-box
+                    .timeline-icon
+                      %i.fa.fa-gift
+                    .timeline-text
+                      %h3 
+                        = @exp_form.vst_form.title
+                      %p
+                        = @exp_form.vst_form.info
+                    .row
+                      - @exp_form.vst_form.enclosures.each do |e|
+                        .col-md-6
+                          = image_tag e.file_url(:small_width), :class => "w-100"
+                    .row
+                      - @exp_form.vst_form.attachments.each_with_index do |e, i|
+                        .col-md-12
+                          = link_to URI.decode(File.basename(e.file_url)), download_attachment_vst_form_path(@vst_form.id, :number => i, :ft => '')
+          -if @state > 6 
+            .timeline-start
+              %p
+                已办结
+            .timeline-launch
+              .timeline-box
+                .timeline-text
+                  %h3
+                    当前报装申请已办理完毕

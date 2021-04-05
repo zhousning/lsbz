@@ -39,6 +39,8 @@ class AprvFormsController < ApplicationController
     @aprv_form = AprvForm.find(params[:id])
     @exp_form = @aprv_form.exp_form
     @prst_form = @exp_form.prst_form
+    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
+    @state = arr.index(@exp_form.state) + 1
   end
    
 

@@ -37,6 +37,8 @@ class PrstFormsController < ApplicationController
   def edit
     @prst_form = PrstForm.find(params[:id])
     @exp_form = @prst_form.exp_form
+    arr = ["opening", "prospecting",  "pending",  "paying",  "constructing",  "visiting",  "completed"]
+    @state = arr.index(@exp_form.state) + 1
   end
    
 

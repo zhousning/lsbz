@@ -1,0 +1,52 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @cstr_form, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @cstr_form.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@cstr_form.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @cstr_form.errors.full_messages.each do |msg|
+                %li= msg
+      
+        .form-group.row
+          = f.label Setting.cstr_forms.title, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :title, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.cstr_forms.info, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_area :info, :class => "form-control rounded-0", :rows => "20" , :required => true
+          
+      
+      
+      
+        .form-group.row
+          = f.label "附图", :class => "col-3 text-right col-form-label col-form-label"
+          .col-9
+            .row
+              = f.fields_for :enclosures do |enclosure|
+                = render 'enclosure_fields', f: enclosure
+              .links
+                = link_to_add_association "添加文件", f, :enclosures, :class => "button button-primary"
+      
+      
+        .form-group.row
+          = f.label "附件", :class => "col-3 text-right col-form-label"
+          .col-9
+            .row
+              = f.fields_for :attachments do |attachment|
+                = render 'attachment_fields', f: attachment
+              .links
+                = link_to_add_association "添加文件", f, :attachments, :class => "button button-primary"
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '保存', :class => "button  button-small button-action"
+        -#
+          .col-3.offset-1
+            = link_to '返回', cstr_forms_path, :class => "button button-small  button-caution"

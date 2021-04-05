@@ -1,0 +1,10 @@
+- provide(:title, t('.title'))
+
+.container-fluid
+  .row
+    .col-8.offset-2
+      = image_tag @exp_form.qr_code.url
+    .col-8.offset-2
+      %h3.text-danger
+        保存二维码，查看报装进度
+

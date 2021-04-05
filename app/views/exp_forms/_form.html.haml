@@ -1,0 +1,150 @@
+.container-fluid
+  .row.justify-content-sm-center
+    .col-sm-12
+      = form_for @exp_form, :builder => WebsiteFormBuilder, :html => {:'data-parsley-validate' => true} do |f|
+        - if @exp_form.errors.any?
+          #error_explanation.alert.alert-danger.alert-dismissible.fade.show
+            %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+              %span{"aria-hidden" => "true"} x 
+            %h2= "#{pluralize(@exp_form.errors.count, "error")} prohibited this buyer from being saved:"
+            %ul
+              - @exp_form.errors.full_messages.each do |msg|
+                %li= msg
+        .form-group.row
+          .col-12
+            %h3.text-center
+              = "山东公用水务集团客户供水报装申请表" 
+      
+        %hr
+        .form-group.row
+          = f.label Setting.exp_forms.name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :name, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.agtor, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :agtor, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.idno, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :idno, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.contact, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :contact, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.email, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :email, :class => "form-control rounded-0" , :required => true
+
+        %hr
+          
+        .form-group.row
+          = f.label Setting.exp_forms.prj_name, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :prj_name, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.prj_address, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :prj_address, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.prj_attr, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.select :prj_attr, options_for_prj_attr, {:include_blank=>false}, {:class=>"form-control" }
+          
+        .form-group.row
+          = f.label Setting.exp_forms.prj_type, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.select :prj_type, options_for_prj_type, {:include_blank=>false}, {:class=>"form-control" }
+          
+        %hr
+        .form-group.row
+          = f.label Setting.exp_forms.east, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :east, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.west, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :west, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.south, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :south, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.north, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :north, :class => "form-control rounded-0" , :required => true
+        %hr
+          
+        .form-group.row
+          = f.label Setting.exp_forms.cmp_type, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.select :cmp_type, options_for_cmp_type, {:include_blank=>false}, {:class=>"form-control"}
+          
+        .form-group.row
+          = f.label Setting.exp_forms.region, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.select :region, options_for_region, {:include_blank=>false}, {:class=>"form-control"}
+          
+        .form-group.row
+          = f.label Setting.exp_forms.area, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.number_field :area, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.matter, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :matter, :class => "form-control rounded-0" , :required => true
+          
+        %hr
+        .form-group.row
+          = f.label Setting.exp_forms.taxid, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :taxid, :class => "form-control rounded-0" , :required => true
+          
+        .form-group.row
+          = f.label Setting.exp_forms.bank, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :bank, :class => "form-control rounded-0" 
+          
+        .form-group.row
+          = f.label Setting.exp_forms.account, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :account, :class => "form-control rounded-0" 
+          
+        .form-group.row
+          = f.label Setting.exp_forms.vat, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.select :vat, options_for_vat, {:include_blank=>false}, {:class=>"form-control"}
+          
+        .form-group.row
+          = f.label Setting.exp_forms.prs, :class => "col-sm-3 col-form-label text-right"
+          .col-sm-6
+            = f.text_field :prs, :class => "form-control rounded-0" 
+      
+        %hr
+        .form-group.row
+          = f.label "附件", :class => "col-3 text-right col-form-label"
+          .col-9
+            .row
+              = f.fields_for :attachments do |attachment|
+                = render 'attachment_fields', f: attachment
+              .links
+                = link_to_add_association "添加文件", f, :attachments, :class => "button button-primary"
+      
+      
+        .form-group.row
+          .col-3.offset-3
+            = f.submit '提交审核', :class => "button  button-small button-action"
+        -#
+          .col-3.offset-1
+            = link_to '返回', exp_forms_path, :class => "button button-small  button-caution"
